@@ -1,0 +1,11 @@
+{
+	"verbose": true,
+	"setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js",
+	"showCoverageOnLoad": true,
+	"collectCoverageFrom": [
+		"src/**/*.{js,jsx}",
+		"!src/**/store/**/logic",
+		"!<rootDir>/node_modules/",
+		"!<rootDir>/path/to/dir/"
+	]
+}
