@@ -1,0 +1,12 @@
+{
+	"jsxBracketSameLine": false,
+	"printWidth": 80,
+	"bracketSpacing": true,
+	"overrides": [
+		{
+			"options": {
+				"jsxBracketSameLine": false
+			}
+		}
+	]
+}
