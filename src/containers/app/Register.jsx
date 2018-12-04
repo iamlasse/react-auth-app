@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, FormGroup, InputGroup, Intent, Icon } from '@blueprintjs/core';
+import { Button, FormGroup, InputGroup, Intent } from '@blueprintjs/core';
 import styled from 'styled-components';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -18,27 +18,44 @@ const StyledInputGroup = styled(InputGroup)`
 `;
 
 class Register extends Component {
+	static propTypes = {
+		fetching: PropTypes.bool
+	};
+
+	static defaultProps = {
+		fetching: false
+	};
+
 	state = {
 		disabled: false,
-		helperText: true,
+		// helperText: true,
 		inline: false,
 		intent: Intent.NONE,
-		label: true,
-		requiredLabel: false,
+		// label: true,
+		// requiredLabel: false,
 		username: '',
 		password: ''
 	};
-	static propTypes = {};
+
 	handleRegister = () => {};
 
-	componentWillUpdate = (nextProps, nextState) => {};
-
-	handleChange = (e) => {
+	handleChange = e => {
 		this.setState({ [e.target.id]: e.target.value });
 	};
+
 	render() {
-		const { disabled, helperText, inline, intent, requiredLabel, label } = this.state;
-		console.log(this.props);
+		const {
+			disabled,
+			// helperText,
+			inline,
+			intent,
+			// requiredLabel,
+			// label,
+			username,
+			password
+		} = this.state;
+		const { fetching } = this.props;
+
 		return (
 			<form action="" style={{ maxWidth: 300, margin: 'auto' }}>
 				<StyledFormGroup disabled={disabled} inline={inline} intent={intent}>
@@ -66,15 +83,16 @@ class Register extends Component {
 					<div>
 						<Button
 							style={{ borderRadius: 50 }}
-							disabled={!(this.state.username && this.state.password)}
+							disabled={!(username && password)}
 							intent="primary"
 							large
 							fill
-							loading={this.props.fetching}
+							loading={fetching}
 							onClick={this.handleRegister}
 						>
 							Register
-						</Button>
+						
+</Button>
 					</div>
 					<span
 						style={{
@@ -84,7 +102,9 @@ class Register extends Component {
 							justifyContent: 'space-between'
 						}}
 					>
-						Already have an account? <Link to="/login">Login</Link>
+						Already have an account? 
+{' '}
+<Link to="/login">Login</Link>
 					</span>
 				</StyledFormGroup>
 			</form>
@@ -92,7 +112,7 @@ class Register extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	fetching: state.auth.fetching,
 	authenticated: state.auth.authenticated
 });

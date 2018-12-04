@@ -36,7 +36,7 @@ class Login extends Component {
 		this.props.login(this.state.username, this.state.password);
 	};
 
-	handleChange = (e) => {
+	handleChange = e => {
 		this.setState({ [e.target.id]: e.target.value });
 	};
 	render() {
@@ -74,8 +74,7 @@ class Login extends Component {
 							large
 							fill
 							loading={this.props.fetching}
-							onClick={this.handleLogin}
-						>
+							onClick={this.handleLogin}>
 							Login
 						</Button>
 					</div>
@@ -85,8 +84,7 @@ class Login extends Component {
 							alignItems: 'center',
 							marginTop: 20,
 							justifyContent: 'space-between'
-						}}
-					>
+						}}>
 						Don't have an account? <Link to="/register">Register</Link>
 					</span>
 				</StyledFormGroup>
@@ -95,7 +93,7 @@ class Login extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	fetching: state.auth.fetching,
 	authenticated: state.auth.authenticated
 });
