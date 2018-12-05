@@ -5,7 +5,7 @@
 	"overrides": [
 		{
 			"options": {
-				"jsxBracketSameLine": false
+				"jsxBracketSameLine": true
 			}
 		}
 	]

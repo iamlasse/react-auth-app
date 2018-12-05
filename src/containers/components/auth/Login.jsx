@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Button, FormGroup, InputGroup, Intent, Icon } from '@blueprintjs/core';
+import { Button, FormGroup, InputGroup, Intent } from '@blueprintjs/core';
 import styled from 'styled-components';
-import { Link, withRouter } from 'react-router-dom';
-import { actions as authActions } from '../../store/modules/auth';
-import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 
@@ -21,27 +18,35 @@ const StyledInputGroup = styled(InputGroup)`
 class Login extends Component {
 	state = {
 		disabled: false,
-		helperText: true,
 		inline: false,
 		intent: Intent.NONE,
-		label: true,
-		requiredLabel: false,
 		username: '',
 		password: ''
 	};
-	static propTypes = {};
+
+	static propTypes = {
+		login: PropTypes.func,
+		fetching: PropTypes.bool
+	};
+
+	static defaultProps = {
+		login: null,
+		fetching: false
+	};
 
 	handleLogin = () => {
-		console.log(this.state.username);
-		this.props.login(this.state.username, this.state.password);
+		const { login } = this.props;
+		const { username, password } = this.state;
+		login(username, password);
 	};
 
 	handleChange = e => {
 		this.setState({ [e.target.id]: e.target.value });
 	};
+
 	render() {
-		const { disabled, helperText, inline, intent, requiredLabel, label } = this.state;
-		console.log(this.props);
+		const { disabled, inline, intent, username, password } = this.state;
+		const { fetching } = this.props;
 		return (
 			<form action="" style={{ maxWidth: 300, margin: 'auto' }}>
 				<StyledFormGroup disabled={disabled} inline={inline} intent={intent}>
@@ -69,12 +74,13 @@ class Login extends Component {
 					<div>
 						<Button
 							style={{ borderRadius: 50 }}
-							disabled={!(this.state.username && this.state.password)}
+							disabled={!(username && password)}
 							intent="primary"
 							large
 							fill
-							loading={this.props.fetching}
-							onClick={this.handleLogin}>
+							loading={fetching}
+							onClick={this.handleLogin}
+						>
 							Login
 						</Button>
 					</div>
@@ -84,8 +90,9 @@ class Login extends Component {
 							alignItems: 'center',
 							marginTop: 20,
 							justifyContent: 'space-between'
-						}}>
-						Don't have an account? <Link to="/register">Register</Link>
+						}}
+					>
+						{"Don't have an account?"} <Link to="/register">Register</Link>
 					</span>
 				</StyledFormGroup>
 			</form>
@@ -93,18 +100,4 @@ class Login extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	fetching: state.auth.fetching,
-	authenticated: state.auth.authenticated
-});
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-	...bindActionCreators(
-		{
-			login: authActions.loginRequest
-		},
-		dispatch
-	)
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default Login;

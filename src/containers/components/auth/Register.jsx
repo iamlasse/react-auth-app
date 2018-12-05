@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Button, FormGroup, InputGroup, Intent } from '@blueprintjs/core';
 import styled from 'styled-components';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 
 const StyledFormGroup = styled(FormGroup)`
-	display: flex;
-	justify-content: space-around;
+display: flex;
+justify-content: space-around;
 `;
 
 const StyledInputGroup = styled(InputGroup)`
-	margin-bottom: 1em;
+margin-bottom: 1em;
 `;
 
 class Register extends Component {
@@ -91,8 +90,7 @@ class Register extends Component {
 							onClick={this.handleRegister}
 						>
 							Register
-						
-</Button>
+						</Button>
 					</div>
 					<span
 						style={{
@@ -102,9 +100,8 @@ class Register extends Component {
 							justifyContent: 'space-between'
 						}}
 					>
-						Already have an account? 
-{' '}
-<Link to="/login">Login</Link>
+						Already have an account?
+						<Link to="/login">Login</Link>
 					</span>
 				</StyledFormGroup>
 			</form>
@@ -112,9 +109,4 @@ class Register extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	fetching: state.auth.fetching,
-	authenticated: state.auth.authenticated
-});
-
-export default withRouter(connect(mapStateToProps)(Register));
+export default Register;

@@ -1,26 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button, Card, Elevation, H3 } from '@blueprintjs/core';
+import Profile from '../components/user/Profile';
+import { authSel } from '../../store/modules/auth';
 
-class Profile extends Component {
-	render() {
-		const { profile } = this.props;
-		return (
-			<div>
-				<Card elevation={Elevation.ONE}>
-					<H3>{profile.username}</H3>
-					<p>{profile.email}</p>
-				</Card>
-			</div>
-		);
-	}
-}
+const { getAuthUser } = authSel;
 
-const mapStateToProps = (state) => ({
-	profile: state.auth.user
+const mapStateToProps = state => ({
+	profile: getAuthUser(state)
 });
 
-const mapDispatchToProps = (dispatch) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps)(Profile);

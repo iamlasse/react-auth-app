@@ -2,19 +2,21 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { actions as authActions, actionTypes } from '../../store/modules/auth';
 import { user, initialState } from './auth.constants';
-
 const logout = () => {
 	return async (dispatch, getState) => {
 		try {
 			dispatch(authActions.logoutRequest());
 			// await Api.logout();
+			// eslint-disable-next-line no-use-before-define
 			await localStorage.clear('token');
 			dispatch(authActions.logoutSuccess());
 		} catch (error) {}
 	};
 };
 
-const middlewares = [ thunk ];
+const middlewares = [
+	thunk
+];
 const mockStore = configureMockStore(middlewares);
 
 describe('Auth Module', () => {
@@ -70,7 +72,10 @@ describe('Auth Module', () => {
 
 	it('should LOGOUT user', async () => {
 		const store = mockStore(initialState);
-		const expectedActions = [ authActions.logoutRequest(), authActions.logoutSuccess() ];
+		const expectedActions = [
+			authActions.logoutRequest(),
+			authActions.logoutSuccess()
+		];
 		await store.dispatch(logout());
 		expect(store.getActions()).toEqual(expectedActions);
 	});

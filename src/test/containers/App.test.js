@@ -4,7 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import App, { Main } from '../../App';
 
 let app;
-describe('App', () => {
+describe('App Container', () => {
 	beforeEach(() => {
 		app = shallow(
 			<Main>
