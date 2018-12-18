@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import auth from './auth/auth';
-import users from './users/users';
+import { authReducer } from './auth';
+import { usersReducer } from './users';
+import { notesReducer } from './notes';
+import { settingsReducer } from './user';
 
 export default combineReducers({
-	user: users,
-	auth
+	notes: notesReducer,
+	users: usersReducer,
+	auth: authReducer,
+	user: combineReducers({ settings: settingsReducer })
 });

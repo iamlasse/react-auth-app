@@ -7,17 +7,29 @@
 		"@blueprintjs/icons": "^3.3.0",
 		"axios": "^0.18.0",
 		"connected-react-router": "4.5.0",
+		"grommet": "^2.2.1",
+		"grommet-icons": "^4.0.1",
+		"hellojs": "^1.17.1",
+		"history": "^4.7.2",
+		"nedb": "^1.8.0",
+		"node-sass": "^4.11.0",
+		"polished": "^2.3.1",
+		"pouchdb": "^7.0.0",
+		"pouchdb-find": "^7.0.0",
 		"prop-types": "^15.6.2",
 		"react": "16.6.3",
 		"react-dom": "16.6.3",
+		"react-icons": "^3.2.2",
 		"react-redux": "5.1.1",
-		"react-router": "4.3.1",
-		"react-router-dom": "4.3.1",
+		"react-router": "^4.4.0-beta.6",
+		"react-router-dom": "^4.4.0-beta.6",
 		"react-router-redux": "^4.0.8",
 		"react-scripts": "2.1.1",
 		"redux": "4.0.1",
+		"redux-devtools-extension": "^2.13.7",
 		"redux-logic": "^2.0.3",
 		"redux-thunk": "2.3.0",
+		"reselect": "^4.0.0",
 		"sanitize.css": "7.0.3",
 		"styled-components": "^4.1.2"
 	},
@@ -26,17 +38,6 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
-	},
-	"babelConfig": {
-		"plugins": [
-			[
-				"import",
-				{
-					"libraryName": "antd",
-					"style": "css"
-				}
-			]
-		]
 	},
 	"eslintConfig": {
 		"extends": "react-app "
@@ -48,6 +49,9 @@
 		"not op_mini all"
 	],
 	"devDependencies": {
+		"@babel/plugin-proposal-class-properties": "^7.2.1",
+		"@babel/preset-env": "^7.2.0",
+		"@babel/preset-react": "^7.0.0",
 		"babel-eslint": "^10.0.1",
 		"enzyme": "^3.7.0",
 		"enzyme-adapter-react-16": "^1.7.0",
@@ -63,7 +67,6 @@
 		"fetch-mock": "^7.2.5",
 		"jest-mock-axios": "^2.1.11",
 		"react-test-renderer": "^16.6.3",
-		"redux-devtools-extension": "^2.13.7",
 		"redux-logic-test": "^2.0.0",
 		"redux-mock-store": "^1.5.3",
 		"serve": "10.1.1"
