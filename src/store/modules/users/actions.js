@@ -10,8 +10,14 @@ export const USERS_FETCH_CANCEL = `${key}/USERS_FETCH_CANCEL`;
 export const USERS_FETCH_FULFILLED = `${key}/USERS_FETCH_FULFILLED`;
 export const USERS_FETCH_REJECTED = `${key}/USERS_FETCH_REJECTED`;
 export const LOGOUT_SUCCESS = 'auth/LOGOUT_SUCCESS';
+export const GET_USERS = 'GET_USERS';
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
+export const GET_USERS_FAILED = 'GET_USERS_FAILED';
 
 export const actionTypes = {
+	GET_USERS,
+	GET_USERS_SUCCESS,
+	GET_USERS_FAILED,
 	USERS_FETCH,
 	USERS_FETCH_CANCEL,
 	USERS_FETCH_FULFILLED,
@@ -20,19 +26,34 @@ export const actionTypes = {
 };
 
 // action creators
+export const getUsersRequest = () => ({
+	type: GET_USERS
+});
+
+export const getUsersSuccess = users => ({
+	type: GET_USERS_SUCCESS,
+	users
+});
+export const getUsersFailed = error => ({
+	type: GET_USERS_FAILED,
+	error
+});
 export const usersFetch = () => ({ type: USERS_FETCH });
 export const usersFetchCancel = () => ({ type: USERS_FETCH_CANCEL });
-export const usersFetchFulfilled = (users) => ({
+export const usersFetchFulfilled = users => ({
 	type: USERS_FETCH_FULFILLED,
 	users
 });
-export const usersFetchRejected = (err) => ({
+export const usersFetchRejected = err => ({
 	type: USERS_FETCH_REJECTED,
 	payload: err,
 	error: true
 });
 
 export const actions = {
+	getUsersRequest,
+	getUsersSuccess,
+	getUsersFailed,
 	usersFetch,
 	usersFetchCancel,
 	usersFetchFulfilled,

@@ -25,7 +25,17 @@ class Dashboard extends Component {
 	render() {
 		const { users, fetching, user } = this.props;
 		return (
-			<div>
+			<div
+				style={{
+					height: '100vh',
+					width: '100vw',
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+					justifyContent: 'center',
+					backgroundColor: '#efefef'
+				}}
+			>
 				<H1>Dashboard</H1>
 				<p>{user.email}</p>
 				{fetching && <Spinner size={40} />}

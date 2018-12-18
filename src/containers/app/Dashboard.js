@@ -3,10 +3,10 @@ import { bindActionCreators } from 'redux';
 import { actions as userActions, userSel } from '../../store/modules/users';
 import { authSel } from '../../store/modules/auth';
 import Dashboard from '../components/app/Dashboard';
+import requireAuth from '../requireAuth';
 
 const { getUsers, getFetchStatus } = userSel;
 const { getAuthUser } = authSel;
-
 const mapStateToProps = state => ({
 	user: getAuthUser(state),
 	users: getUsers(state),
@@ -22,4 +22,4 @@ const mapDispatchToProps = dispatch => ({
 	)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default requireAuth(connect(mapStateToProps, mapDispatchToProps)(Dashboard));

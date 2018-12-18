@@ -1,7 +1,11 @@
 import {
-	LOGIN_REQUESTED,
+	LOGIN_REQUESTED_EMAIL,
+	LOGIN_REQUESTED_OAUTH,
 	LOGIN_FAILED,
 	LOGIN_SUCCESS,
+	SIGNUP_REQUESTED,
+	SIGNUP_FAILED,
+	SIGNUP_SUCCESS,
 	GET_USER,
 	GET_USER_SUCCESS,
 	GET_USER_FAILED,
@@ -15,9 +19,20 @@ const initialState = {
 	fetching: false
 };
 
+const getAuthUser = state => state.auth.user;
+const getAuthenticated = state => state.auth.authenticated;
+const getAuthFetchStatus = state => state.fetching;
+
+export const selectors = {
+	getAuthUser,
+	getAuthFetchStatus,
+	getAuthenticated
+};
+
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case LOGIN_REQUESTED:
+		case LOGIN_REQUESTED_EMAIL:
+		case LOGIN_REQUESTED_OAUTH:
 			return {
 				...state,
 				fetching: true
@@ -30,6 +45,23 @@ const reducer = (state = initialState, action) => {
 				user: action.user
 			};
 		case LOGIN_FAILED:
+			return {
+				...state,
+				error: action.error,
+				fetching: false,
+				authenticated: false
+			};
+		case SIGNUP_REQUESTED:
+			return {
+				...state,
+				fetching: true
+			};
+		case SIGNUP_SUCCESS:
+			return {
+				...state,
+				fetching: false
+			};
+		case SIGNUP_FAILED:
 			return {
 				...state,
 				error: action.error,
@@ -63,7 +95,8 @@ const reducer = (state = initialState, action) => {
 		case LOGOUT_FAILED:
 			return {
 				...state,
-				fetching: false
+				fetching: false,
+				error: action.error
 			};
 		case LOGOUT_SUCCESS:
 			return {
@@ -74,4 +107,5 @@ const reducer = (state = initialState, action) => {
 			return state;
 	}
 };
+
 export default reducer;

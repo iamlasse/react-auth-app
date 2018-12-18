@@ -11,6 +11,15 @@
 		"jsx-a11y"
 	],
 	"rules": {
+		"no-underscore-dangle": [
+			"error",
+			{
+				"allow": [
+					"_id",
+					"_rev"
+				]
+			}
+		],
 		"comma-dangle": 0,
 		"no-tabs": 0,
 		"no-mixed-spaces-and-tabs": "off",

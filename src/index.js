@@ -1,26 +1,31 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
+import store, { history as reduxHistory } from './store';
 import './index.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
-import App, { Main } from './App';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const target = document.getElementById('root');
 
 serviceWorker.register({
-	onUpdate: (registration) => {
+	onUpdate: registration => {
 		console.log(registration);
 	},
-	onSuccess: (registration) => {
+	onSuccess: registration => {
 		console.log(registration);
 	}
 });
 
-const renderHMR = (Component) => {
+const renderHMR = Component => {
 	return render(
-		<Main>
-			<Component />
-		</Main>,
+		<Provider store={store}>
+			<ConnectedRouter history={reduxHistory}>
+				<Component />
+			</ConnectedRouter>
+		</Provider>,
 		target
 	);
 };

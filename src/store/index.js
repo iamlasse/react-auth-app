@@ -8,11 +8,33 @@ import axios from 'axios';
 import rootReducer from './modules';
 import logic from './modules/rootLogic';
 
-const baseURL = 'http://localhost:3001/';
+const baseURL = process.env.API_BASE_URL || 'http://localhost:3001/api';
+
+const getAuthToken = () => {
+	const token = localStorage.getItem('token');
+
+	if (token) return `Bearer ${token}`;
+	return false;
+};
 
 const httpClient = axios.create({
 	baseURL
 });
+
+httpClient.defaults.headers.common['Authorization'] = getAuthToken();
+
+httpClient.interceptors.request.use(
+	function(config) {
+		// Do something before request is sent
+		console.log('Intercepted request: ', config);
+
+		return config;
+	},
+	function(error) {
+		// Do something with request error
+		return Promise.reject(error);
+	}
+);
 
 const deps = {
 	httpClient

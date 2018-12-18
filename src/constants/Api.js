@@ -10,19 +10,4 @@ export default class Api {
 			return { error };
 		}
 	}
-	static async login(username, password) {
-		try {
-			console.log('Login in api');
-			const { data: { user, token }, error } = await axios.post(`${baseUrl}/login`, {
-				email: username,
-				password
-			});
-			if (error) throw new Error(error);
-			localStorage.setItem('token', token);
-			// return { user };
-			return { user, token };
-		} catch (error) {
-			return { error };
-		}
-	}
 }
