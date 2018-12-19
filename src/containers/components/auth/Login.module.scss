@@ -1,0 +1,10 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+$blue1: rgb(100, 200, 120) !default;
+
+.button {
+	font-size: 400%;
+	background-color: rgb(100, 200, 120);
+	.brand-color {
+		background-color: $blue1;
+	}
+}
