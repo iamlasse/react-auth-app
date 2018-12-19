@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Component renders without crashing 1`] = `
+exports[`Register Component renders without crashing 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Login
+  Symbol(enzyme.__unrendered__): <Register
     fetching={false}
-    login={null}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -21,9 +20,10 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <form
-        action=""
+        onSubmit={[Function]}
         style={
           Object {
+            "margin": "auto",
             "maxWidth": 300,
           }
         }
@@ -35,7 +35,7 @@ ShallowWrapper {
             }
           }
         >
-          Login
+          Create account
         </h2>
         <ForwardRef
           disabled={false}
@@ -63,10 +63,21 @@ ShallowWrapper {
             round={true}
             type="password"
           />
+          <ForwardRef
+            disabled={false}
+            id="passwordConfirmation"
+            intent="none"
+            large={true}
+            leftIcon="lock"
+            onChange={[Function]}
+            placeholder="Password Again"
+            round={true}
+            type="password"
+          />
           <div>
             <Blueprint3.Button
               disabled={true}
-              fill={true}
+              fill="true"={true}
               intent="primary"
               large={true}
               loading={false}
@@ -77,7 +88,7 @@ ShallowWrapper {
                 }
               }
             >
-              Login
+              Register
             </Blueprint3.Button>
           </div>
           <span
@@ -90,13 +101,12 @@ ShallowWrapper {
               }
             }
           >
-            Don't have an account?
-             
+            Already have an account?
             <Link
               replace={false}
-              to="/register"
+              to="/login"
             >
-              Register
+              Login
             </Link>
           </span>
         </ForwardRef>
@@ -116,7 +126,6 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "action": "",
         "children": Array [
           <h2
             style={
@@ -125,7 +134,7 @@ ShallowWrapper {
               }
             }
           >
-            Login
+            Create account
           </h2>,
           <ForwardRef
             disabled={false}
@@ -153,10 +162,21 @@ ShallowWrapper {
               round={true}
               type="password"
             />
+            <ForwardRef
+              disabled={false}
+              id="passwordConfirmation"
+              intent="none"
+              large={true}
+              leftIcon="lock"
+              onChange={[Function]}
+              placeholder="Password Again"
+              round={true}
+              type="password"
+            />
             <div>
               <Blueprint3.Button
                 disabled={true}
-                fill={true}
+                fill="true"={true}
                 intent="primary"
                 large={true}
                 loading={false}
@@ -167,7 +187,7 @@ ShallowWrapper {
                   }
                 }
               >
-                Login
+                Register
               </Blueprint3.Button>
             </div>
             <span
@@ -180,18 +200,19 @@ ShallowWrapper {
                 }
               }
             >
-              Don't have an account?
-               
+              Already have an account?
               <Link
                 replace={false}
-                to="/register"
+                to="/login"
               >
-                Register
+                Login
               </Link>
             </span>
           </ForwardRef>,
         ],
+        "onSubmit": [Function],
         "style": Object {
+          "margin": "auto",
           "maxWidth": 300,
         },
       },
@@ -202,13 +223,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Login",
+            "children": "Create account",
             "style": Object {
               "textAlign": "center",
             },
           },
           "ref": null,
-          "rendered": "Login",
+          "rendered": "Create account",
           "type": "h2",
         },
         Object {
@@ -238,10 +259,21 @@ ShallowWrapper {
                 round={true}
                 type="password"
               />,
+              <ForwardRef
+                disabled={false}
+                id="passwordConfirmation"
+                intent="none"
+                large={true}
+                leftIcon="lock"
+                onChange={[Function]}
+                placeholder="Password Again"
+                round={true}
+                type="password"
+              />,
               <div>
                 <Blueprint3.Button
                   disabled={true}
-                  fill={true}
+                  fill="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -252,7 +284,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  Login
+                  Register
                 </Blueprint3.Button>
               </div>,
               <span
@@ -265,13 +297,12 @@ ShallowWrapper {
                   }
                 }
               >
-                Don't have an account?
-                 
+                Already have an account?
                 <Link
                   replace={false}
-                  to="/register"
+                  to="/login"
                 >
-                  Register
+                  Login
                 </Link>
               </span>,
             ],
@@ -305,7 +336,7 @@ ShallowWrapper {
                   "isStatic": true,
                   "rules": Array [
                     "
-	margin-bottom: 1em;
+margin-bottom: 1em;
 ",
                   ],
                 },
@@ -345,7 +376,47 @@ ShallowWrapper {
                   "isStatic": true,
                   "rules": Array [
                     "
-	margin-bottom: 1em;
+margin-bottom: 1em;
+",
+                  ],
+                },
+                "displayName": "Styled(Blueprint3.InputGroup)",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-bwzfXH",
+                "target": [Function],
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "disabled": false,
+                "id": "passwordConfirmation",
+                "intent": "none",
+                "large": true,
+                "leftIcon": "lock",
+                "onChange": [Function],
+                "placeholder": "Password Again",
+                "round": true,
+                "type": "password",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-bwzfXH",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+margin-bottom: 1em;
 ",
                   ],
                 },
@@ -367,7 +438,7 @@ ShallowWrapper {
               "props": Object {
                 "children": <Blueprint3.Button
                   disabled={true}
-                  fill={true}
+                  fill="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -378,7 +449,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  Login
+                  Register
                 </Blueprint3.Button>,
               },
               "ref": null,
@@ -387,9 +458,9 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": "Login",
+                  "children": "Register",
                   "disabled": true,
-                  "fill": true,
+                  "fill="true"": true,
                   "intent": "primary",
                   "large": true,
                   "loading": false,
@@ -399,7 +470,7 @@ ShallowWrapper {
                   },
                 },
                 "ref": null,
-                "rendered": "Login",
+                "rendered": "Register",
                 "type": [Function],
               },
               "type": "div",
@@ -410,13 +481,12 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  "Don't have an account?",
-                  " ",
+                  "Already have an account?",
                   <Link
                     replace={false}
-                    to="/register"
+                    to="/login"
                   >
-                    Register
+                    Login
                   </Link>,
                 ],
                 "style": Object {
@@ -428,19 +498,18 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": Array [
-                "Don't have an account?",
-                " ",
+                "Already have an account?",
                 Object {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": "Register",
+                    "children": "Login",
                     "replace": false,
-                    "to": "/register",
+                    "to": "/login",
                   },
                   "ref": null,
-                  "rendered": "Register",
+                  "rendered": "Login",
                   "type": [Function],
                 },
               ],
@@ -455,8 +524,8 @@ ShallowWrapper {
               "isStatic": true,
               "rules": Array [
                 "
-	display: flex;
-	justify-content: space-around;
+display: flex;
+justify-content: space-around;
 ",
               ],
             },
@@ -483,9 +552,10 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <form
-          action=""
+          onSubmit={[Function]}
           style={
             Object {
+              "margin": "auto",
               "maxWidth": 300,
             }
           }
@@ -497,7 +567,7 @@ ShallowWrapper {
               }
             }
           >
-            Login
+            Create account
           </h2>
           <ForwardRef
             disabled={false}
@@ -525,10 +595,21 @@ ShallowWrapper {
               round={true}
               type="password"
             />
+            <ForwardRef
+              disabled={false}
+              id="passwordConfirmation"
+              intent="none"
+              large={true}
+              leftIcon="lock"
+              onChange={[Function]}
+              placeholder="Password Again"
+              round={true}
+              type="password"
+            />
             <div>
               <Blueprint3.Button
                 disabled={true}
-                fill={true}
+                fill="true"={true}
                 intent="primary"
                 large={true}
                 loading={false}
@@ -539,7 +620,7 @@ ShallowWrapper {
                   }
                 }
               >
-                Login
+                Register
               </Blueprint3.Button>
             </div>
             <span
@@ -552,13 +633,12 @@ ShallowWrapper {
                 }
               }
             >
-              Don't have an account?
-               
+              Already have an account?
               <Link
                 replace={false}
-                to="/register"
+                to="/login"
               >
-                Register
+                Login
               </Link>
             </span>
           </ForwardRef>
@@ -578,7 +658,6 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "action": "",
           "children": Array [
             <h2
               style={
@@ -587,7 +666,7 @@ ShallowWrapper {
                 }
               }
             >
-              Login
+              Create account
             </h2>,
             <ForwardRef
               disabled={false}
@@ -615,10 +694,21 @@ ShallowWrapper {
                 round={true}
                 type="password"
               />
+              <ForwardRef
+                disabled={false}
+                id="passwordConfirmation"
+                intent="none"
+                large={true}
+                leftIcon="lock"
+                onChange={[Function]}
+                placeholder="Password Again"
+                round={true}
+                type="password"
+              />
               <div>
                 <Blueprint3.Button
                   disabled={true}
-                  fill={true}
+                  fill="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -629,7 +719,7 @@ ShallowWrapper {
                     }
                   }
                 >
-                  Login
+                  Register
                 </Blueprint3.Button>
               </div>
               <span
@@ -642,18 +732,19 @@ ShallowWrapper {
                   }
                 }
               >
-                Don't have an account?
-                 
+                Already have an account?
                 <Link
                   replace={false}
-                  to="/register"
+                  to="/login"
                 >
-                  Register
+                  Login
                 </Link>
               </span>
             </ForwardRef>,
           ],
+          "onSubmit": [Function],
           "style": Object {
+            "margin": "auto",
             "maxWidth": 300,
           },
         },
@@ -664,13 +755,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Login",
+              "children": "Create account",
               "style": Object {
                 "textAlign": "center",
               },
             },
             "ref": null,
-            "rendered": "Login",
+            "rendered": "Create account",
             "type": "h2",
           },
           Object {
@@ -700,10 +791,21 @@ ShallowWrapper {
                   round={true}
                   type="password"
                 />,
+                <ForwardRef
+                  disabled={false}
+                  id="passwordConfirmation"
+                  intent="none"
+                  large={true}
+                  leftIcon="lock"
+                  onChange={[Function]}
+                  placeholder="Password Again"
+                  round={true}
+                  type="password"
+                />,
                 <div>
                   <Blueprint3.Button
                     disabled={true}
-                    fill={true}
+                    fill="true"={true}
                     intent="primary"
                     large={true}
                     loading={false}
@@ -714,7 +816,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    Login
+                    Register
                   </Blueprint3.Button>
                 </div>,
                 <span
@@ -727,13 +829,12 @@ ShallowWrapper {
                     }
                   }
                 >
-                  Don't have an account?
-                   
+                  Already have an account?
                   <Link
                     replace={false}
-                    to="/register"
+                    to="/login"
                   >
-                    Register
+                    Login
                   </Link>
                 </span>,
               ],
@@ -767,7 +868,7 @@ ShallowWrapper {
                     "isStatic": true,
                     "rules": Array [
                       "
-	margin-bottom: 1em;
+margin-bottom: 1em;
 ",
                     ],
                   },
@@ -807,7 +908,47 @@ ShallowWrapper {
                     "isStatic": true,
                     "rules": Array [
                       "
-	margin-bottom: 1em;
+margin-bottom: 1em;
+",
+                    ],
+                  },
+                  "displayName": "Styled(Blueprint3.InputGroup)",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-bwzfXH",
+                  "target": [Function],
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
+                },
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "disabled": false,
+                  "id": "passwordConfirmation",
+                  "intent": "none",
+                  "large": true,
+                  "leftIcon": "lock",
+                  "onChange": [Function],
+                  "placeholder": "Password Again",
+                  "round": true,
+                  "type": "password",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-bwzfXH",
+                    "isStatic": true,
+                    "rules": Array [
+                      "
+margin-bottom: 1em;
 ",
                     ],
                   },
@@ -829,7 +970,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": <Blueprint3.Button
                     disabled={true}
-                    fill={true}
+                    fill="true"={true}
                     intent="primary"
                     large={true}
                     loading={false}
@@ -840,7 +981,7 @@ ShallowWrapper {
                       }
                     }
                   >
-                    Login
+                    Register
                   </Blueprint3.Button>,
                 },
                 "ref": null,
@@ -849,9 +990,9 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": "Login",
+                    "children": "Register",
                     "disabled": true,
-                    "fill": true,
+                    "fill="true"": true,
                     "intent": "primary",
                     "large": true,
                     "loading": false,
@@ -861,7 +1002,7 @@ ShallowWrapper {
                     },
                   },
                   "ref": null,
-                  "rendered": "Login",
+                  "rendered": "Register",
                   "type": [Function],
                 },
                 "type": "div",
@@ -872,13 +1013,12 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    "Don't have an account?",
-                    " ",
+                    "Already have an account?",
                     <Link
                       replace={false}
-                      to="/register"
+                      to="/login"
                     >
-                      Register
+                      Login
                     </Link>,
                   ],
                   "style": Object {
@@ -890,19 +1030,18 @@ ShallowWrapper {
                 },
                 "ref": null,
                 "rendered": Array [
-                  "Don't have an account?",
-                  " ",
+                  "Already have an account?",
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": "Register",
+                      "children": "Login",
                       "replace": false,
-                      "to": "/register",
+                      "to": "/login",
                     },
                     "ref": null,
-                    "rendered": "Register",
+                    "rendered": "Login",
                     "type": [Function],
                   },
                 ],
@@ -917,8 +1056,8 @@ ShallowWrapper {
                 "isStatic": true,
                 "rules": Array [
                   "
-	display: flex;
-	justify-content: space-around;
+display: flex;
+justify-content: space-around;
 ",
                 ],
               },

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { bindActionCreators } from 'redux';
 import { actions as authActions, authSel } from '../../store/modules/auth';
-import Signin from '../components/auth/Signin';
+import Signin from './components/Signin';
 
 const { getAuthenticated, getAuthFetchStatus } = authSel;
 

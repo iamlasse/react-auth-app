@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Signup from '../components/auth/Signup';
+import Signup from './components/Signup';
 import { authSel, actions } from '../../store/modules/auth';
 
 const { getAuthFetchStatus, getAuthenticated } = authSel;

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Profile from '../components/user/Profile';
+import Profile from './components/Profile';
 import { authSel } from '../../store/modules/auth';
 import { actions as userActions } from '../../store/modules/user';
 import { noteSel, actions as notesActions } from '../../store/modules/notes';
