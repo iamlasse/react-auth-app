@@ -77,7 +77,7 @@ ShallowWrapper {
           <div>
             <Blueprint3.Button
               disabled={true}
-              fill="true"={true}
+              fill="true"="true"={true}
               intent="primary"
               large={true}
               loading={false}
@@ -176,7 +176,7 @@ ShallowWrapper {
             <div>
               <Blueprint3.Button
                 disabled={true}
-                fill="true"={true}
+                fill="true"="true"={true}
                 intent="primary"
                 large={true}
                 loading={false}
@@ -273,7 +273,7 @@ ShallowWrapper {
               <div>
                 <Blueprint3.Button
                   disabled={true}
-                  fill="true"={true}
+                  fill="true"="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -438,7 +438,7 @@ margin-bottom: 1em;
               "props": Object {
                 "children": <Blueprint3.Button
                   disabled={true}
-                  fill="true"={true}
+                  fill="true"="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -460,7 +460,7 @@ margin-bottom: 1em;
                 "props": Object {
                   "children": "Register",
                   "disabled": true,
-                  "fill="true"": true,
+                  "fill="true"="true"": true,
                   "intent": "primary",
                   "large": true,
                   "loading": false,
@@ -609,7 +609,7 @@ justify-content: space-around;
             <div>
               <Blueprint3.Button
                 disabled={true}
-                fill="true"={true}
+                fill="true"="true"={true}
                 intent="primary"
                 large={true}
                 loading={false}
@@ -708,7 +708,7 @@ justify-content: space-around;
               <div>
                 <Blueprint3.Button
                   disabled={true}
-                  fill="true"={true}
+                  fill="true"="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -805,7 +805,7 @@ justify-content: space-around;
                 <div>
                   <Blueprint3.Button
                     disabled={true}
-                    fill="true"={true}
+                    fill="true"="true"={true}
                     intent="primary"
                     large={true}
                     loading={false}
@@ -970,7 +970,7 @@ margin-bottom: 1em;
                 "props": Object {
                   "children": <Blueprint3.Button
                     disabled={true}
-                    fill="true"={true}
+                    fill="true"="true"={true}
                     intent="primary"
                     large={true}
                     loading={false}
@@ -992,7 +992,7 @@ margin-bottom: 1em;
                   "props": Object {
                     "children": "Register",
                     "disabled": true,
-                    "fill="true"": true,
+                    "fill="true"="true"": true,
                     "intent": "primary",
                     "large": true,
                     "loading": false,

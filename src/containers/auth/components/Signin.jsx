@@ -78,7 +78,7 @@ class Login extends Component {
 								color="#ea4335"
 								icon={<GooglePlus color="white" size="small" />}
 								margin="xsmall"
-								fill="true"
+								fill
 								loading={fetching}
 								onClick={() => this.handleLoginWith('google')}
 							/>
@@ -91,7 +91,7 @@ class Login extends Component {
 								color="#3b5998"
 								icon={<FacebookOption color="white" size="small" />}
 								margin="xsmall"
-								fill="true"
+								fill
 								loading={fetching}
 								onClick={() => this.handleLoginWith('facebook')}
 							/>
@@ -125,7 +125,7 @@ class Login extends Component {
 							label="Login with email"
 							color="brand-2"
 							large
-							fill="true"
+							fill
 							loading={fetching}
 							disabled={!(username && password)}
 							onClick={this.handleLogin}

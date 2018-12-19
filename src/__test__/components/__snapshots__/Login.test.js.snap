@@ -66,7 +66,7 @@ ShallowWrapper {
           <div>
             <Blueprint3.Button
               disabled={true}
-              fill={true}
+              fill="true"={true}
               intent="primary"
               large={true}
               loading={false}
@@ -156,7 +156,7 @@ ShallowWrapper {
             <div>
               <Blueprint3.Button
                 disabled={true}
-                fill={true}
+                fill="true"={true}
                 intent="primary"
                 large={true}
                 loading={false}
@@ -241,7 +241,7 @@ ShallowWrapper {
               <div>
                 <Blueprint3.Button
                   disabled={true}
-                  fill={true}
+                  fill="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -367,7 +367,7 @@ ShallowWrapper {
               "props": Object {
                 "children": <Blueprint3.Button
                   disabled={true}
-                  fill={true}
+                  fill="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -389,7 +389,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": "Login",
                   "disabled": true,
-                  "fill": true,
+                  "fill="true"": true,
                   "intent": "primary",
                   "large": true,
                   "loading": false,
@@ -528,7 +528,7 @@ ShallowWrapper {
             <div>
               <Blueprint3.Button
                 disabled={true}
-                fill={true}
+                fill="true"={true}
                 intent="primary"
                 large={true}
                 loading={false}
@@ -618,7 +618,7 @@ ShallowWrapper {
               <div>
                 <Blueprint3.Button
                   disabled={true}
-                  fill={true}
+                  fill="true"={true}
                   intent="primary"
                   large={true}
                   loading={false}
@@ -703,7 +703,7 @@ ShallowWrapper {
                 <div>
                   <Blueprint3.Button
                     disabled={true}
-                    fill={true}
+                    fill="true"={true}
                     intent="primary"
                     large={true}
                     loading={false}
@@ -829,7 +829,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": <Blueprint3.Button
                     disabled={true}
-                    fill={true}
+                    fill="true"={true}
                     intent="primary"
                     large={true}
                     loading={false}
@@ -851,7 +851,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": "Login",
                     "disabled": true,
-                    "fill": true,
+                    "fill="true"": true,
                     "intent": "primary",
                     "large": true,
                     "loading": false,

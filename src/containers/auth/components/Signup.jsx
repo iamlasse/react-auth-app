@@ -95,7 +95,7 @@ class Register extends Component {
 							color="#ea4335"
 							icon={<GooglePlus color="white" size="small" />}
 							margin="xsmall"
-							fill="true"
+							fill
 							loading={fetching}
 							onClick={() => this.handleSignupnWith('google')}
 						/>
@@ -108,7 +108,7 @@ class Register extends Component {
 							color="#3b5998"
 							icon={<FacebookOption color="white" size="small" />}
 							margin="xsmall"
-							fill="true"
+							fill
 							loading={fetching}
 							onClick={() => this.handleSignupnWith('facebook')}
 						/>
@@ -154,7 +154,7 @@ class Register extends Component {
 							color="brand-2"
 							label="Create account with email"
 							large
-							fill="true"
+							fill
 							loading={fetching}
 							disabled={!(username && password)}
 							onClick={this.handleRegister}
