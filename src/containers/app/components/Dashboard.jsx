@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Spinner } from '@blueprintjs/core'
 import { Heading, Paragraph } from 'grommet'
 import { StyledWrapper } from '../../../components/AppStyled'
+import GiphySearch from './GiphySearch'
+import SpinLoad from './GiphySearch/SpinLoad'
 
 class Dashboard extends Component {
 	static propTypes = {
@@ -21,7 +23,7 @@ class Dashboard extends Component {
 
 	componentDidMount() {
 		const { getUsersAsync } = this.props
-		getUsersAsync()
+		// getUsersAsync();
 	}
 
 	render() {
@@ -29,16 +31,8 @@ class Dashboard extends Component {
 		return (
 			<StyledWrapper>
 				<Heading level={1}>Dashboard</Heading>
+				<GiphySearch initialQuery="dog" RenderLoading={SpinLoad} />
 				<Paragraph>{user.email}</Paragraph>
-				{fetching && <Spinner size={40} />}
-				{!fetching &&
-					users.length && (
-						<ul>
-							{users.map(usr => (
-								<li key={usr._id}>{usr.username}</li>
-							))}
-						</ul>
-					)}
 			</StyledWrapper>
 		)
 	}
