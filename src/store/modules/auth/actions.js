@@ -37,10 +37,11 @@ export const loginFailed = error => ({
   error
 });
 
-export const signupRequestEmail = (username, password) => ({
+export const signupRequestEmail = ({ username, password, email }) => ({
   type: SIGNUP_REQUESTED,
   username,
-  password
+  password,
+  email
 });
 
 export const signupSuccess = user => ({

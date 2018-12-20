@@ -12,7 +12,7 @@ export default createLogic({
 	warnTimeout: 0,
 	async process({ httpClient, action }, dispatch, done) {
 		// console.log('Call signup redux logic: ', action)
-		const { username, password } = action
+		const { username, password, email } = action
 		function onError(message) {
 			dispatch(signupFailed(message))
 			AppToaster.show({ message, intent: 'danger' })
@@ -27,7 +27,7 @@ export default createLogic({
 			const { token, user } = await httpClient
 				.post('/auth/signup', {
 					username,
-					email: username,
+					email,
 					password
 				})
 				.then(response => response.data)

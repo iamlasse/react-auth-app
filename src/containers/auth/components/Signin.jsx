@@ -1,15 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
-import { Intent } from "@blueprintjs/core";
+import { Intent, Icon } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import { Heading } from "grommet";
+import { Cycle } from "grommet-icons";
 import {
   StyledFormActions,
   StyledButton,
   StyledFormWrapper,
   StyledFormGroup,
-  StyledInputGroup
+  StyledInputGroup,
+  StyledLoadingIcon
 } from "./Styled";
 import Auth from "../../../constants/Auth";
 import AuthButtons from "./AuthButtons";
@@ -34,28 +36,20 @@ const InputField = ({ input, ...rest }) => (
   <StyledInputGroup {...input} {...rest} />
 );
 
-class Signin extends Component {
-  state = {
-    disabled: false,
-    inline: false,
-    intent: Intent.NONE,
-    username: "",
-    password: ""
-  };
+const Signin = ({
+  fetching,
+  valid,
+  dirty,
+  pristine,
+  handleSubmit,
+  loginWith,
+  login
+}) => {
+  console.log("object", fetching);
+  const intent = Intent.NONE;
 
-  static propTypes = {
-    login: PropTypes.func,
-    fetching: PropTypes.bool
-  };
-
-  static defaultProps = {
-    login: null,
-    fetching: false
-  };
-
-  handleLoginWithProvider = async provider => {
+  const handleLoginWithProvider = async provider => {
     try {
-      const { loginWith } = this.props;
       const { access_token: accessToken } = await auth.loginWith(provider);
       await loginWith(provider, accessToken);
       const me = await auth.getMe(provider);
@@ -65,78 +59,78 @@ class Signin extends Component {
     }
   };
 
-  handleLoginWithEmailPassword = e => {
-    e.preventDefault();
-    const { login } = this.props;
-    const { username, password } = this.state;
+  const handleLoginWithEmailPassword = ({ username, password }) => {
     login(username, password);
   };
+  return (
+    <StyledFormWrapper>
+      <form
+        style={{ maxWidth: 300 }}
+        onSubmit={handleSubmit(handleLoginWithEmailPassword)}
+      >
+        <Heading level={2} style={{ textAlign: "center" }}>
+          Login
+        </Heading>
+        <StyledFormGroup intent={intent}>
+          <AuthButtons handleAction={handleLoginWithProvider} />
+          <Field
+            name="username"
+            round
+            type="email"
+            leftIcon="person"
+            large
+            id="username"
+            placeholder="Username"
+            intent={intent}
+            component={InputField}
+          />
+          <Field
+            name="password"
+            round
+            large
+            leftIcon="lock"
+            type="password"
+            id="password"
+            placeholder="Password"
+            intent={intent}
+            component={InputField}
+          />
 
-  handleChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
+          <StyledButton
+            primary
+            plain
+            type="submit"
+            color="brand-2"
+            large
+            fill
+            round
+            disabled={!valid && (!dirty || !pristine)}
+            onClick={handleSubmit(handleLoginWithEmailPassword)}
+          >
+            {fetching && (
+              <StyledLoadingIcon
+                color="white"
+                size="small"
+                style={{ marginRight: 10 }}
+              />
+            )}
+            Sign in with email
+          </StyledButton>
 
-  render() {
-    const { disabled, inline, intent, username, password } = this.state;
-    const { fetching, valid, dirty, pristine } = this.props;
-    return (
-      <StyledFormWrapper>
-        <form
-          style={{ maxWidth: 300 }}
-          onSubmit={this.handleLoginWithEmailPassword}
-        >
-          <Heading level={2} style={{ textAlign: "center" }}>
-            Login
-          </Heading>
-          <StyledFormGroup disabled={disabled} inline={inline} intent={intent}>
-            <AuthButtons handleAction={this.handleLoginWithProvider} />
-            <Field
-              name="username"
-              round
-              leftIcon="person"
-              large
-              id="username"
-              placeholder="Username"
-              disabled={disabled}
-              intent={intent}
-              component={InputField}
-            />
-            <Field
-              name="password"
-              round
-              large
-              leftIcon="lock"
-              type="password"
-              id="password"
-              placeholder="Password"
-              disabled={disabled}
-              intent={intent}
-              component={InputField}
-            />
+          <StyledFormActions>
+            {"Don't have an account?"} <Link to="/signup">Create Account</Link>
+          </StyledFormActions>
+        </StyledFormGroup>
+      </form>
+    </StyledFormWrapper>
+  );
+};
 
-            <StyledButton
-              primary
-              plain
-              type="submit"
-              label="Login with email"
-              color="brand-2"
-              large
-              fill
-              loading={fetching}
-              disabled={!valid && (!dirty || !pristine)}
-              onClick={this.handleLogin}
-            />
-
-            <StyledFormActions>
-              {"Don't have an account?"}{" "}
-              <Link to="/signup">Create Account</Link>
-            </StyledFormActions>
-          </StyledFormGroup>
-        </form>
-      </StyledFormWrapper>
-    );
-  }
-}
+Signin.propTypes = {
+  loginWith: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired
+};
+Signin.defaultProps = {};
 
 const signinWithReduxForm = reduxForm({
   form: "signin",
