@@ -26,22 +26,22 @@ const validateForm = values => {
   errors.email = !values.email
     ? "Email is Requred"
     : !values.email.match(/@/)
-    ? "Must be a valid email"
-    : undefined;
+      ? "Must be a valid email"
+      : undefined;
 
   errors.password = !values.password
     ? "Email is Requred"
     : !values.password.match(/[A-Z]/)
-    ? "Must contain an uppercase letter"
-    : values.password.length <= 5
-    ? "Must be longer than 5 characters"
-    : undefined;
+      ? "Must contain an uppercase letter"
+      : values.password.length <= 5
+        ? "Must be longer than 5 characters"
+        : undefined;
 
   errors.passwordConfirmation = !values.passwordConfirmation
     ? "Missing password confirmation"
     : values.password !== values.passwordConfirmation
-    ? "Passwords must match"
-    : undefined;
+      ? "Passwords must match"
+      : undefined;
 
   return errors;
 };
@@ -83,7 +83,7 @@ const Signup = ({
         <Heading level={2} style={{ textAlign: "center" }}>
           Create account
         </Heading>
-        <AuthButtons handleAction={handleSignupnWith} />
+        <AuthButtons action={'Sign Up'} handleAction={handleSignupnWith} />
         <StyledFormGroup intent={intent}>
           <Field
             round
@@ -159,6 +159,26 @@ const Signup = ({
       </form>
     </StyledFormWrapper>
   );
+};
+
+Signup.propTypes = {
+  fetching: PropTypes.bool,
+  valid: PropTypes.bool,
+  pristine: PropTypes.bool,
+  dirty: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  loginWith: PropTypes.func,
+  signupUser: PropTypes.func
+};
+
+Signup.defaultProps = {
+  fetching: false,
+  valid: null,
+  pristine: null,
+  dirty: null,
+  handleSubmit: () => null,
+  loginWith: () => null,
+  signupUser: () => null
 };
 
 const signupWithReduxForm = reduxForm({

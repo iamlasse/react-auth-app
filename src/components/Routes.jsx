@@ -17,14 +17,14 @@ const PrivateRoute = ({ auth, component: Component, children, ...rest }) => (
 			auth.authenticated ? (
 				<Component {...props} />
 			) : (
-				<Fragment>
-					{AppToaster.show({
-						message: 'Please log in to access that page',
-						intent: 'primary'
-					})}
-					<Redirect to="/signin" />
-				</Fragment>
-			)
+					<Fragment>
+						{AppToaster.show({
+							message: 'Please log in to access that page',
+							intent: 'primary'
+						})}
+						<Redirect to="/signin" />
+					</Fragment>
+				)
 		}
 	/>
 )
@@ -46,7 +46,7 @@ export default function Routes(props) {
 			<AuthRoute exact path="/signup" component={Signup} {...props} />
 			<PrivateRoute exact path="/dashboard" component={Dashboard} {...props} />
 			<PrivateRoute path="/user" component={Profile} {...props} />
-			<Route path="/auth/callback" render={({ match }) => <h2>Auth Redirect....</h2>} />
+			<Route path="/auth/callback" render={() => <h2>Auth Redirect....</h2>} />
 			<Route component={NotFound} />
 		</Switch>
 	)

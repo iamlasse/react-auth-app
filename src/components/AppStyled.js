@@ -13,10 +13,7 @@ export const StyledWrapper = styled.div`
 			flex-direction: column
 `
 
-export const StyledWrappedMain = styled.div`
-    display: flex
-    justify-content: center
-    align-items: center
+export const StyledWrappedMain = styled(StyledWrapper)`
     height: 100vh
     width: 100vw
     background-color: #f9f9f9

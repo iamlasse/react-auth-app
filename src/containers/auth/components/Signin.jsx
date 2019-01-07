@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
-import { Intent, Icon } from "@blueprintjs/core";
+import { Intent } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import { Heading } from "grommet";
-import { Cycle } from "grommet-icons";
+
 import {
   StyledFormActions,
   StyledButton,
@@ -13,6 +13,7 @@ import {
   StyledInputGroup,
   StyledLoadingIcon
 } from "./Styled";
+
 import Auth from "../../../constants/Auth";
 import AuthButtons from "./AuthButtons";
 
@@ -24,8 +25,8 @@ const validateForm = values => {
   errors.email = !values.email
     ? "Email is missing"
     : !values.email.match(/@/g)
-    ? "Email must be valid"
-    : undefined;
+      ? "Email must be valid"
+      : undefined;
 
   errors.password = !values.password ? "Password is missing" : undefined;
 
@@ -72,7 +73,7 @@ const Signin = ({
           Login
         </Heading>
         <StyledFormGroup intent={intent}>
-          <AuthButtons handleAction={handleLoginWithProvider} />
+          <AuthButtons action={'Sign In'} handleAction={handleLoginWithProvider} />
           <Field
             name="username"
             round
