@@ -1,5 +1,4 @@
-import { authReducer as reducer, actionTypes, actions as authActions } from '../modules/auth';
-import { createMockStore } from 'redux-logic-test';
+import { authReducer as reducer, actions as authActions } from '../../store/modules/auth';
 import { user, initialState } from './auth.constants';
 
 describe('Auth Reducer', () => {
@@ -39,7 +38,7 @@ describe('Auth Reducer', () => {
 	});
 
 	it('should handle LOGIN_REQUESTED', () => {
-		expect(reducer({}, authActions.loginRequest(user.email, 'password'))).toEqual({
+		expect(reducer({}, authActions.loginRequestEmail(user.email, 'password'))).toEqual({
 			fetching: true
 		});
 	});

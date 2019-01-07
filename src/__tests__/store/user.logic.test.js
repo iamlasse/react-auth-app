@@ -1,7 +1,8 @@
-import { authReducer as reducer, actionTypes, actions as authActions } from '../modules/auth';
 import { createMockStore } from 'redux-logic-test';
-import authLogic from '../modules/auth/logic';
-import { deps, user, initialState } from './auth.constants';
+import { authReducer as reducer, actionTypes, actions as authActions } from '../../store/modules/auth';
+import authLogic from '../../store/modules/auth/logic';
+import { deps } from './auth.constants';
+
 const logic = authLogic;
 let store;
 

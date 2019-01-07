@@ -1,20 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import { compose } from 'redux';
 import configureMockStore from 'redux-mock-store';
-import { connect } from 'react-redux';
-import shallowWithStore from '../shallowStore';
-import { shallow } from 'enzyme';
+import shallowWithStore from '../../shallowStore';
 import Profile from '../../containers/user/Profile';
 
 const middlewares = [];
 const mockStore = configureMockStore(middlewares);
 
-let Component;
-let wrapper;
 describe('Profile Redux', () => {
-	beforeEach(() => {});
+	beforeEach(() => { });
 
 	it('renders without crashing', () => {
 		const testState = {

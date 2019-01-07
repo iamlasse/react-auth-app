@@ -1,18 +1,20 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { actions as authActions, actionTypes } from '../modules/auth';
+import { actions as authActions } from '../../store/modules/auth';
 import { user, initialState } from './auth.constants';
-const logout = () => {
-	return async (dispatch, getState) => {
-		try {
-			dispatch(authActions.logoutRequest());
-			// await Api.logout();
-			// eslint-disable-next-line no-use-before-define
-			await localStorage.clear('token');
-			dispatch(authActions.logoutSuccess());
-		} catch (error) {}
-	};
+
+const logout = () => async (dispatch) => {
+	try {
+		dispatch(authActions.logoutRequest());
+		// await Api.logout();
+		// eslint-disable-next-line no-use-before-define
+		await localStorage.clear('token');
+		dispatch(authActions.logoutSuccess());
+	} catch (error) {
+		dispatch(authActions.loginFailed(error.message))
+	}
 };
+
 
 const middlewares = [
 	thunk
@@ -20,7 +22,7 @@ const middlewares = [
 const mockStore = configureMockStore(middlewares);
 
 describe('Auth Module', () => {
-	afterEach(() => {});
+	afterEach(() => { });
 
 	it('should create GET_USER action', () => {
 		const expectedAction = authActions.getUser();
@@ -41,9 +43,9 @@ describe('Auth Module', () => {
 	});
 
 	it('should create LOGIN_REQUESTED action', () => {
-		const expectedAction = authActions.loginRequest(user.email, 'password');
+		const expectedAction = authActions.loginRequestEmail(user.email, 'password');
 
-		expect(authActions.loginRequest(user.email, 'password')).toEqual(expectedAction);
+		expect(authActions.loginRequestEmail(user.email, 'password')).toEqual(expectedAction);
 	});
 
 	it('should create LOGIN_FAILED action', () => {

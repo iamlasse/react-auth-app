@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Profile from '../../containers/user/Profile';
-import shallowWithStore from '../shallowStore';
 import configureMockStore from 'redux-mock-store';
+import shallowWithStore from '../../shallowStore';
+import Profile from '../../containers/user/Profile';
+
 let wrapper;
 const middlewares = [];
 const mockStore = configureMockStore(middlewares);

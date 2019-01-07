@@ -12,7 +12,7 @@ export default createLogic({
 	async process({ httpClient, action }, dispatch, done) {
 		// console.log('Dispatch logic Authenticate user')
 		try {
-			const { redirectTo } = action.options
+			const { redirectTo } = action.options || '/dashboard'
 			const token = await localStorage.getItem('token')
 			if (!token) throw new Error('No token, please login')
 			const {

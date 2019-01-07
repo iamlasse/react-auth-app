@@ -1,15 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { shallow, mount, render } from 'enzyme';
-import Login from '../../containers/components/auth/Login';
+import { shallow } from 'enzyme';
+import Signin from '../../containers/auth/components/Signin';
 
-let Component;
 let wrapper;
 describe('Login Component', () => {
 	beforeEach(() => {
-		wrapper = shallow(<Login />);
+		wrapper = shallow(<Signin />);
 	});
 
 	it('renders without crashing', () => {

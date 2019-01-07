@@ -1,9 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import shallowWithStore from '../shallowStore';
 import configureMockStore from 'redux-mock-store';
+import shallowWithStore from '../../shallowStore';
 
-import Dashboard from '../../containers/components/app/Dashboard';
+import Dashboard from '../../containers/app/Dashboard';
 
 let wrapper;
 const middlewares = [];

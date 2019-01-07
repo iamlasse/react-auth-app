@@ -1,7 +1,8 @@
-import { authReducer as reducer, actionTypes, actions as authActions } from '../modules/auth';
 import { createMockStore } from 'redux-logic-test';
-import authLogic from '../modules/auth/logic';
+import { authReducer as reducer, actionTypes, actions as authActions } from '../../store/modules/auth';
+import authLogic from '../../store/modules/auth/logic';
 import { deps, user, initialState } from './auth.constants';
+
 const logic = authLogic;
 let store;
 
@@ -14,12 +15,14 @@ describe('Auth LOGIN logic', () => {
 			initialState
 		});
 
-		store.dispatch(authActions.loginRequest('test@test.com', 'password'));
+		store.dispatch(authActions.loginRequestEmail('test@test.com', 'password'));
 		store.whenComplete(() => {
 			expect(store.getState()).toEqual({ authenticated: true, fetching: false, user });
 			expect(store.actions).toEqual([
-				{ type: 'auth/LOGIN_REQUESTED', username: user.email, password: 'password' },
-				{ type: 'auth/LOGIN_SUCCESS', user }
+				{
+					type: actionTypes.LOGIN_REQUESTED_EMAIL, username: user.email, password: 'password'
+				},
+				{ type: actionTypes.LOGIN_SUCCESS, user }
 			]);
 		});
 	});
@@ -32,7 +35,7 @@ describe('Auth LOGIN logic', () => {
 			initialState: { authenticated: true, fetching: false } // Hack to fake failing login
 		});
 
-		store.dispatch(authActions.loginRequest('test@test.com', 'password'));
+		store.dispatch(authActions.loginRequestEmail('test@test.com', 'password'));
 		store.whenComplete(() => {
 			expect(store.getState()).toEqual({
 				authenticated: false,
@@ -40,8 +43,8 @@ describe('Auth LOGIN logic', () => {
 				error: 'Error logging in'
 			});
 			expect(store.actions).toEqual([
-				{ type: 'auth/LOGIN_REQUESTED', username: user.email, password: 'password' },
-				{ type: 'auth/LOGIN_FAILED', error: 'Error logging in' }
+				{ type: actionTypes.LOGIN_REQUESTED_EMAIL, username: user.email, password: 'password' },
+				{ type: actionTypes.LOGIN_FAILED, error: 'Error logging in' }
 			]);
 		});
 	});
