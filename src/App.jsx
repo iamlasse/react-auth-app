@@ -10,6 +10,8 @@ import { StyledWrappedMain } from './components/AppStyled'
 import Auth from './constants/Auth'
 import Header from './components/Header'
 import Routes from './components/Routes'
+import './App.css'
+import NetworkChecker from "./components/NetworkChecker";
 
 const socialAuth = new Auth()
 
@@ -24,25 +26,15 @@ class App extends React.Component {
 		getUser({ redirectTo: location })
 	}
 
-	componentDidUpdate() {
-		const { getSettings, fetching, auth } = this.props
-		if (!fetching && auth.user) {
-			const {
-				auth: {
-					user: { _id: id }
-				}
-			} = this.props
-			getSettings(id)
-		}
-	}
-
 	render() {
+		const { online, offline } = this.props.settings
 		return (
 			<Grommet theme={this.theme}>
 				<Header {...this.props} />
 				<StyledWrappedMain fill="true">
 					<Routes {...this.props} />
 				</StyledWrappedMain>
+				<NetworkChecker offline={offline} online={online} />
 			</Grommet>
 		)
 	}
@@ -53,6 +45,7 @@ const mapStateToProps = state => ({
 	fetching: authSel.getAuthFetchStatus(state.auth),
 	theme: state.user.settings.theme,
 	router: state.router,
+	settings: state.user.settings,
 	socialAuth
 })
 

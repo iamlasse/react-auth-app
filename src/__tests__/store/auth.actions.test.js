@@ -8,7 +8,6 @@ const logout = () => async (dispatch) => {
 		dispatch(authActions.logoutRequest());
 		// await Api.logout();
 		// eslint-disable-next-line no-use-before-define
-		await localStorage.clear('token');
 		dispatch(authActions.logoutSuccess());
 	} catch (error) {
 		dispatch(authActions.loginFailed(error.message))

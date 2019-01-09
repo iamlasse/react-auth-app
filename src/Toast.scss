@@ -1,0 +1,128 @@
+// @function pow($number, $exp) {
+//   $value: 1;
+//   @if $exp > 0 {
+//     @for $i from 1 through $exp {
+//       $value: $value * $number;
+//     }
+//   }
+//   @else if $exp < 0 {
+//     @for $i from 1 through -$exp {
+//       $value: $value / $number;
+//     }
+//   }
+//   @return $value;
+// }
+// @function rad($angle) {
+//   $unit: unit($angle);
+//   $unitless: $angle / ($angle * 0 + 1);
+//   // If the angle has 'deg' as unit, convert to radians.
+//   @if $unit == deg {
+//     $unitless: $unitless / 180 * pi();
+//   }
+//   @return $unitless;
+// }
+// @function fact($number) {
+//   $value: 1;
+//   @if $number > 0 {
+//     @for $i from 1 through $number {
+//       $value: $value * $i;
+//     }
+//   }
+//   @return $value;
+// }
+// @function sin($angle) {
+//   $sin: 0;
+//   $angle: rad($angle);
+//   // Iterate a bunch of times.
+//   @for $i from 0 through 10 {
+//     $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+//   }
+//   @return $sin;
+// }
+// @function cos($angle) {
+//   $cos: 0;
+//   $angle: rad($angle);
+//   // Iterate a bunch of times.
+//   @for $i from 0 through 10 {
+//     $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+//   }
+//   @return $cos;
+// }
+// @function lerp($a, $b, $p){
+//   @return $a + $p * ($b - $a);
+// }
+// /**
+//  -0.5 * (pow) * (
+//     -2 * (2.71828 ** (6 * t)) + sin(12 * t) + 2 * cos(12 * t))
+// */
+// @function spring-wobbly($t){
+//   @return -0.5 * (pow(2.71828 , (-6 * $t))) * (-2 * (pow(2.71828, (6 * $t))) + sin(12 * $t) + 2 * cos(12 * $t))
+// }
+// @keyframes moveUp {
+//   @for $i from 0 through 100 {
+//      #{$i+'%'}{
+//       transform: translateY(lerp(150%, -50%, spring-wobbly($i / 100)));
+//     }
+//   }    
+// }
+// @keyframes moveDown {
+//   @for $i from 0 through 100 {
+//      #{$i+'%'}{
+//       transform: translateY(lerp(0%, 150%, spring-wobbly($i / 100)));
+//     }
+//   }    
+// }
+.toast {
+  align-items: center;
+  /* border-radius: 0px; */
+  bottom: 0px;
+  display: flex;
+  min-height: 90px;
+  max-height: 50px;
+  justify-content: center;
+  align-items: center;
+  left: 0%;
+  right: 0;
+  padding: 0 20px;
+  position: fixed; // animation: 0.3s moveDown;
+  transform: translateX(0%) translateY(150%);
+  transition: transform .35s ease;
+  &.visible {
+    // -webkit-transform: translateX(0%) translateY(0%);
+    transform: translateX(0%) translateY(0%); //  animation: 0.3s moveUp; 
+  }
+  &.success {
+    background-color: #16a085
+  }
+  &.success p {
+    color: #fff;
+  }
+  &.danger {
+    background-color: #c0392b
+  }
+  &.danger p {
+    color: #fff;
+  }
+  &.warning {
+    background-color: #F38211
+  }
+  &.warning p {
+    color: #fff;
+  }
+  p {
+    color: #fff;
+    font-family: 'Noto Sans';
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  figure {
+    height: 35px;
+    margin: 0 15px 0 0;
+    opacity: .9;
+    width: 35px;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
