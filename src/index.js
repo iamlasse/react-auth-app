@@ -19,16 +19,14 @@ serviceWorker.register({
 	}
 });
 
-const renderHMR = Component => {
-	return render(
-		<Provider store={store}>
-			<ConnectedRouter history={reduxHistory}>
-				<Component />
-			</ConnectedRouter>
-		</Provider>,
-		target
-	);
-};
+const renderHMR = Component => render(
+	<Provider store={store}>
+		<ConnectedRouter history={reduxHistory}>
+			<Component />
+		</ConnectedRouter>
+	</Provider>,
+	target
+);
 
 renderHMR(App);
 

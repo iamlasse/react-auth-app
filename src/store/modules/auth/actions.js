@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import Api from "../../../constants/Api";
 import {
   LOGIN_REQUESTED_EMAIL,
@@ -87,7 +88,7 @@ export const logout = () => async dispatch => {
   try {
     dispatch(logoutRequest());
     await Api.logout();
-    await localStorage.clear("token");
+    await Cookies.remove('token')
     return dispatch(logoutSuccess());
   } catch (error) {
     return dispatch(logoutFailed(error.message));

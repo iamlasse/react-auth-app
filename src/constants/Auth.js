@@ -91,8 +91,8 @@ export default class Auth {
 			this.idToken = null
 			this.expiresAt = 0
 
-			// Remove token from localStorage
-			localStorage.removeItem('token')
+
+			// Cookies
 
 			// navigate to the home route
 			history.replace('/')

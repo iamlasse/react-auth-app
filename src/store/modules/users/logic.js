@@ -1,4 +1,5 @@
 import { createLogic } from 'redux-logic'
+import Cookies from 'js-cookie'
 import {
 	USERS_FETCH,
 	USERS_FETCH_CANCEL,
@@ -20,7 +21,7 @@ export const usersFetchLogic = createLogic({
 		console.log('Dispatch logic fecth users')
 
 		try {
-			const token = await localStorage.getItem('token')
+			const token = await Cookies.get('token')
 			// the delay query param adds arbitrary delay to the response
 			const { users } = await httpClient
 				.get(`http://localhost:3001/users`, {

@@ -1,5 +1,6 @@
 import { createLogic } from 'redux-logic'
 import { push } from 'connected-react-router'
+import Cookies from 'js-cookie'
 import { actionTypes, actions } from '../index'
 import AppToaster from '../../../../constants/AppToaster'
 
@@ -13,7 +14,7 @@ export default createLogic({
 		// console.log('Dispatch logic Authenticate user')
 		try {
 			const { redirectTo } = action.options || '/dashboard'
-			const token = await localStorage.getItem('token')
+			const token = await Cookies.get('token')
 			if (!token) throw new Error('No token, please login')
 			const {
 				data: { user, authenticated },

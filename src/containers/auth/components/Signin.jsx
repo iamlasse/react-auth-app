@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Field, reduxForm } from "redux-form";
-import { Intent } from "@blueprintjs/core";
+import { Intent, Spinner } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import { Heading } from "grommet";
 
@@ -63,6 +63,9 @@ const Signin = ({
   const handleLoginWithEmailPassword = ({ username, password }) => {
     login(username, password);
   };
+  if (fetching) {
+    return <Spinner size={100} />
+  }
   return (
     <StyledFormWrapper>
       <form
@@ -73,7 +76,7 @@ const Signin = ({
           Login
         </Heading>
         <StyledFormGroup intent={intent}>
-          <AuthButtons action={'Sign In'} handleAction={handleLoginWithProvider} />
+          <AuthButtons action="Sign In" handleAction={handleLoginWithProvider} />
           <Field
             name="username"
             round
@@ -129,7 +132,7 @@ const Signin = ({
 
 Signin.propTypes = {
   loginWith: PropTypes.func.isRequired,
-  login: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
 };
 Signin.defaultProps = {};
 

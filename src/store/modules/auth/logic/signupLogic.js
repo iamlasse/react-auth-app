@@ -1,5 +1,6 @@
 import { createLogic } from 'redux-logic'
 import { push } from 'connected-react-router'
+import Cookies from 'js-cookie'
 import { actionTypes, actions } from '../index'
 import AppToaster from '../../../../constants/AppToaster'
 
@@ -18,7 +19,7 @@ export default createLogic({
 			AppToaster.show({ message, intent: 'danger' })
 		}
 		function onSuccess(token, user) {
-			localStorage.setItem('token', token)
+			Cookies.set('token', token)
 			dispatch(signupSuccess(user))
 			AppToaster.show({ message: 'Signed up, now login', intent: 'success' })
 			dispatch(push('/signin'))

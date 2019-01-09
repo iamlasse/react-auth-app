@@ -11,6 +11,7 @@
 		"grommet-icons": "^4.0.1",
 		"hellojs": "^1.17.1",
 		"history": "^4.7.2",
+		"js-cookie": "^2.2.0",
 		"nedb": "^1.8.0",
 		"node-sass": "^4.11.0",
 		"polished": "^2.3.1",

@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import Cookies from 'js-cookie'
 import { createLogicMiddleware } from "redux-logic";
 import { connectRouter, routerMiddleware } from "connected-react-router";
 import createBrowserHistory from "history/createBrowserHistory";
@@ -12,7 +13,7 @@ import logic from "./modules/rootLogic";
 const baseURL = process.env.API_BASE_URL || "http://localhost:3001/api";
 
 const getAuthToken = () => {
-  const token = localStorage.getItem("token");
+  const token = Cookies.get("token");
 
   if (token) return `Bearer ${token}`;
   return false;

@@ -83,7 +83,7 @@ const Signup = ({
         <Heading level={2} style={{ textAlign: "center" }}>
           Create account
         </Heading>
-        <AuthButtons action={'Sign Up'} handleAction={handleSignupnWith} />
+        <AuthButtons action="Sign Up" handleAction={handleSignupnWith} />
         <StyledFormGroup intent={intent}>
           <Field
             round
@@ -180,6 +180,7 @@ Signup.defaultProps = {
   loginWith: () => null,
   signupUser: () => null
 };
+
 
 const signupWithReduxForm = reduxForm({
   form: "signup",

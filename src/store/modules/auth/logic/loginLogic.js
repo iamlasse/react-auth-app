@@ -1,5 +1,6 @@
 import { createLogic } from 'redux-logic'
 import { push } from 'connected-react-router'
+import Cookies from 'js-cookie'
 import { actionTypes, actions } from '../index'
 import AppToaster from '../../../../constants/AppToaster'
 
@@ -29,7 +30,7 @@ export default createLogic({
 				password
 			})
 			if (!user || !token) throw new Error('User not found...')
-			localStorage.setItem('token', token)
+			Cookies.set('token', token, { expires: 7, path: '' })
 			return done(onSuccess(user, token))
 		} catch (error) {
 			return done(onError(error.message))

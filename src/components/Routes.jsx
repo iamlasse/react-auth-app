@@ -33,7 +33,7 @@ const AuthRoute = ({ auth, component: Component, ...rest }) => (
 	<Route
 		{...rest}
 		render={props =>
-			auth.authenticated ? <Redirect to="/dashboard" /> : <Component {...props} />
+			auth.authenticated ? <Redirect to="/dashboard" /> : <Component {...props} {...auth} />
 		}
 	/>
 )

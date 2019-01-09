@@ -7,7 +7,7 @@ import Signin from './components/Signin';
 const { getAuthenticated, getAuthFetchStatus } = authSel;
 
 const mapStateToProps = state => ({
-	fetching: getAuthFetchStatus(state),
+	fetching: getAuthFetchStatus(state.auth),
 	authenticated: getAuthenticated(state)
 });
 

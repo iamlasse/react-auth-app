@@ -7,7 +7,9 @@ const db = new DB('user');
 
 const initialState = {
 	db,
-	theme: null
+	theme: null,
+	offline: "You're offline, Please reconnect",
+	online: "You're back online"
 };
 
 const reducer = (state = initialState, action) => {
