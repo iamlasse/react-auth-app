@@ -36,6 +36,7 @@
 		"styled-components": "^4.1.2"
 	},
 	"scripts": {
+		"now-build": "react-scripts build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
